@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Fullscreen Image with Draggable Box</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="stimulus.js"></script>
+    <script type="module" src="main.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Additional styles if necessary */
+      body,
+      html {
+        overflow: hidden;
+        height: 100%;
+      }
+      .draggable-box {
+        cursor: grab; /* Default cursor to grab */
+        position: absolute; /* Required for dragging functionality */
+        z-index: 50; /* Ensure it is above other content */
+      }
+      img {
+        object-fit: cover;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      data-controller="random-image"
+      data-random-image-target="imageDisplay"
+    />
+    <div
+      data-controller="draggable"
+      data-action="mousedown->draggable#mousedown mousemove->draggable#mousemove mouseup->draggable#mouseup"
+      class="info-box draggable-box p-3 bg-black bg-opacity-50 text-white font-mono max-w-md text-justify filter backdrop-blur-sm"
+      style="
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+        width: 300px;
+        height: 200px;
+      "
+    >
+      <h1
+        class="text-2xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight"
+      >
+        Work Title
+      </h1>
+      <p class="mt-2 text-base leading-6 text-white">
+        This is some description for work. And then some. And then some more.
+      </p>
+    </div>
+  </body>
+</html>
