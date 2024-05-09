@@ -18,7 +18,6 @@ export default class extends Controller {
     this.element.style.cursor = "grabbing";
     this.element.style.filter = "invert(1)";
   }
-
   mousemove(e) {
     if (!this.draggingValue) return;
 
@@ -37,6 +36,6 @@ export default class extends Controller {
   mouseup() {
     this.draggingValue = false;
     this.element.style.cursor = "grab";
-    this.element.style.filter = "none";
+    this.element.style.filter = "invert(0)";
   }
 }

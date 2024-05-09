@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["imageDisplay"];
 
   connect() {
-    const imageUrlArray = ["https://picsum.photos/2000/2000"]; // Example image URL
+    const imageUrlArray = ["./IMG_1741@0.5x_chrome.png"]; // Example image URL
     const randomIndex = Math.floor(Math.random() * imageUrlArray.length);
     this.imageDisplayTarget.src = imageUrlArray[randomIndex];
     this.resize();
